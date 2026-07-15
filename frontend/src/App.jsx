@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState("");
 
  // Use explicit production backend in production builds to avoid localhost fallback on Vercel
- const baseUrl = import.meta.env.VITE_API_BASE || (import.meta.env.MODE === 'production'
+ const baseUrl = import.meta.env.VITE_API_URL || (import.meta.env.MODE === 'production'
   ? 'https://btn-five.vercel.app'
   : 'http://localhost:5000');
   const handleClick = async () => {
