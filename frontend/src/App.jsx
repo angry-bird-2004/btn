@@ -5,10 +5,10 @@ function App() {
 
 const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
  
+const response = await fetch(`${baseUrl}/api/message`);
 const handleClick = async () => {
   try {
     // Relative path works automatically on Vercel
-    const response = await fetch(`${baseUrl}/api/message`);
     // const response = await fetch('/api/message');
     const data = await response.json();
     setMessage(data.text);
