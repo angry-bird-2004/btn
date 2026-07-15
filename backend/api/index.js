@@ -1,21 +1,25 @@
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://btn-five.vercel.app",
-];
+const app = express();
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (e.g. curl, Postman)
-      if (!origin) return callback(null, true);
+const corsOptions = process.env.NODE_ENV === 'production'
+  ? {
+      origin: 'https://btn-five.vercel.app',
+      optionsSuccessStatus: 200,
+    }
+  : {
+      // In development allow requests from local dev servers
+      origin: true,
+      optionsSuccessStatus: 200,
+    };
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
+app.use(cors(corsOptions));
 
-      callback(new Error("Not allowed by CORS"));
-    },
-  })
-);
+app.get('/api/message', (req, res) => {
+  res.json({
+    text: 'Hello from the Express server!'
+  });
+});
+
+module.exports = app;
