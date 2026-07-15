@@ -7,7 +7,7 @@ app.use(cors());
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'https://your-frontend-project.vercel.app', // Your deployed frontend URL
+  origin: 'https://btn-five.vercel.app', // Your deployed frontend URL
   optionsSuccessStatus: 200
 };
 
