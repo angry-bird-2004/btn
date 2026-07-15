@@ -3,10 +3,16 @@ const cors = require('cors');
 
 const app = express();
 
-const corsOptions = {
-  origin: 'https://btn-five.vercel.app',
-  optionsSuccessStatus: 200
-};
+const corsOptions = process.env.NODE_ENV === 'production'
+  ? {
+      origin: 'https://btn-five.vercel.app',
+      optionsSuccessStatus: 200,
+    }
+  : {
+      // In development allow requests from local dev servers
+      origin: true,
+      optionsSuccessStatus: 200,
+    };
 
 app.use(cors(corsOptions));
 
