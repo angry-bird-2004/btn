@@ -4,6 +4,15 @@ const app = express();
 
 app.use(cors());
 
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'https://your-frontend-project.vercel.app', // Your deployed frontend URL
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
 app.get('/api/message', (req, res) => {
     res.json({ text: "Hello from the Express server!" });
 });
