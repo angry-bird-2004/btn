@@ -13,7 +13,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/api/message', (req, res) => {
+app.get('./', (req, res) => {
     res.json({ text: "Hello from the Express server!" });
 });
 
