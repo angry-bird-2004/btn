@@ -4,11 +4,16 @@ function App() {
   const [message, setMessage] = useState("");
 
  // Use explicit production backend in production builds to avoid localhost fallback on Vercel
- const baseUrl = import.meta.env.VITE_API_URL || (
-  import.meta.env.MODE === "production"
+ console.log("MODE:", import.meta.env.MODE);
+console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+
+const baseUrl =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.MODE === "production"
     ? "https://btn-xsnr.vercel.app"
-    : "http://localhost:5000"
-);
+    : "http://localhost:5000");
+
+console.log("baseUrl:", baseUrl);
   const handleClick = async () => {
     try {
       const response = await fetch(`${baseUrl}/api/message`);
