@@ -9,7 +9,7 @@ const handleClick = async () => {
   try {
     // Relative path works automatically on Vercel
     const response = await fetch(`${baseUrl}/api/message`);
-    const response = await fetch('/api/message');
+    // const response = await fetch('/api/message');
     const data = await response.json();
     setMessage(data.text);
   } catch (error) {
