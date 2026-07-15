@@ -2,12 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
-
-const cors = require('cors');
-
 const corsOptions = {
-  origin: 'https://btn-five.vercel.app', // Your deployed frontend URL
+  origin: 'https://btn-five.vercel.app', 
   optionsSuccessStatus: 200
 };
 
@@ -17,7 +13,5 @@ app.get('/api/message', (req, res) => {
     res.json({ text: "Hello from the Express server!" });
 });
 
-// REMOVE: app.listen(5000, ...);
-
-// ADD: Export the app for Vercel
+// IMPORTANT: Do not include app.listen()
 module.exports = app;
