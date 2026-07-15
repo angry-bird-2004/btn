@@ -3,7 +3,10 @@ import React, { useState } from "react";
 function App() {
   const [message, setMessage] = useState("");
 
- const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+ // Use explicit production backend in production builds to avoid localhost fallback on Vercel
+ const baseUrl = import.meta.env.VITE_API_BASE || (import.meta.env.MODE === 'production'
+  ? 'https://btn-five.vercel.app'
+  : 'http://localhost:5000');
   const handleClick = async () => {
     try {
       const response = await fetch(`${baseUrl}/api/message`);
