@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 function App() {
   const [message, setMessage] = useState('');
 
- const handleClick = async () => {
+const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+ 
+const handleClick = async () => {
   try {
     // Relative path works automatically on Vercel
+    const response = await fetch(`${baseUrl}/api/message`);
     const response = await fetch('/api/message');
     const data = await response.json();
     setMessage(data.text);
