@@ -31,7 +31,7 @@ console.log("baseUrl:", baseUrl);
 
   return (
     <div>
-      <button onClick={handleClick}>Get Message in testing</button>
+      <button onClick={handleClick}>Get Message in testing an other change o</button>
       <p>{message}</p>
     </div>
   );

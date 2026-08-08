@@ -37,7 +37,7 @@ app.use(
 
 app.get("/api/message", (req, res) => {
   res.json({
-    text: "Hello from the Express server and saif in testing!",
+    text: "Hello from the Express server and saif in testing an other change s!",
   });
 });
 
